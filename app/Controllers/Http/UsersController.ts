@@ -24,7 +24,7 @@ export default class UsesController {
 
   public async index({ auth }: HttpContextContract) {
     const user = await auth.use('api').authenticate()
-    console.log(auth.user)
+    const id = user.id
     return `Hello user! Your email address is ${user.email}`
   }
 }
