@@ -22,3 +22,6 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/user', 'UsersController.store')
 Route.post('/logIn', 'UsersController.session')
+Route.group(() => {
+  Route.get('/', 'UsersController.index')
+}).middleware('auth')

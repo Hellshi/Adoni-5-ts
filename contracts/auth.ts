@@ -5,7 +5,7 @@
  * file.
  */
 
-import auth from 'App/Models/auth'
+import users from 'App/Models/users'
 
 declare module '@ioc:Adonis/Addons/Auth' {
   /*
@@ -34,8 +34,8 @@ declare module '@ioc:Adonis/Addons/Auth' {
     |
     */
     user: {
-      implementation: LucidProviderContract<typeof auth>,
-      config: LucidProviderConfig<typeof auth>,
+      implementation: LucidProviderContract<typeof users>,
+      config: LucidProviderConfig<typeof users>,
     },
   }
 
