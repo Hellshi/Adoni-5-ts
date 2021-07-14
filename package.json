@@ -23,9 +23,13 @@
     "youch-terminal": "^1.1.1"
   },
   "dependencies": {
+    "@adonisjs/auth": "^8.0.7",
     "@adonisjs/core": "^5.1.0",
     "@adonisjs/lucid": "^15.0.3",
+    "@adonisjs/redis": "^7.0.7",
     "@adonisjs/repl": "^3.0.0",
+    "@adonisjs/session": "^6.1.0",
+    "argon2": "^0.28.2",
     "luxon": "^2.0.1",
     "pg": "^8.6.0",
     "phc-argon2": "^1.1.2",
