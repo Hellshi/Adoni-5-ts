@@ -24,6 +24,7 @@ Route.post('/user', 'UsersController.store')
 Route.post('/logIn', 'UsersController.session')
 Route.group(() => {
   Route.get('/', 'UsersController.index')
+
   Route.group(() => {
     Route.get('/:id', 'ProjectsController.show')
     Route.post('/create', 'ProjectsController.store')
@@ -39,4 +40,9 @@ Route.group(() => {
     Route.delete('/delete/:Task_id', 'TasksController.delete')
     Route.put('/update/:Task_id', 'TasksController.update')
   }).prefix('/projects/:Project_id/tasks')
+
+  Route.group(() => {
+    Route.post('/', 'FilesController.store')
+    Route.get('/:id', 'FilesController.show')
+  }).prefix('/file')
 }).middleware('auth')

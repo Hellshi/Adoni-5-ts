@@ -16,7 +16,7 @@ export default class Task extends BaseModel {
   public projects: BelongsTo<typeof Project>
 
   @belongsTo(() => User, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
   })
   public user: BelongsTo<typeof User>
 

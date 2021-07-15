@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Project from 'App/Models/Project'
-import User from 'App/Models/User'
 
 export default class ProjectsController {
   public async store({ request, auth }: HttpContextContract) {

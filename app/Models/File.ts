@@ -1,7 +1,13 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasOne, hasOne, computed } from '@ioc:Adonis/Lucid/Orm'
+import Task from 'App//Models/Task'
 
 export default class File extends BaseModel {
+  @hasOne(() => Task, {
+    foreignKey: 'file_id',
+  })
+  public task: HasOne<typeof Task>
+
   @column({ isPrimary: true })
   public id: number
 

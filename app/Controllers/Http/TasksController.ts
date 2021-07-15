@@ -16,6 +16,10 @@ export default class TasksController {
     await task.load('user', (queryProject) => {
       queryProject
     })
+
+    await task.load('file', (queryProject) => {
+      queryProject
+    })
     return task
   }
 
