@@ -22,7 +22,7 @@ export default class ProjectsController {
     await projects.load('user', (queryUser) => {
       queryUser.where('id', Userid)
     })
-    await projects.load('task', (queryUser) => {
+    await projects.load('tasks', (queryUser) => {
       queryUser
     })
     return projects

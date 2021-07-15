@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, column, hasOne, HasOne, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import User from 'App/Models/User'
 import File from 'App/Models/File'
 import Project from 'App/Models/Project'
@@ -10,15 +10,15 @@ export default class Task extends BaseModel {
   })
   public file: HasOne<typeof File>
 
-  @hasOne(() => Project, {
-    foreignKey: 'id',
+  @belongsTo(() => Project, {
+    foreignKey: 'project_id',
   })
-  public project: HasOne<typeof Project>
+  public projects: BelongsTo<typeof Project>
 
-  @hasOne(() => User, {
+  @belongsTo(() => User, {
     foreignKey: 'id',
   })
-  public user: HasOne<typeof User>
+  public user: BelongsTo<typeof User>
 
   @column({ isPrimary: true })
   public id: number
@@ -33,13 +33,13 @@ export default class Task extends BaseModel {
   public description: string
 
   @column()
-  public project_id: string
+  public project_id: number
 
   @column()
-  public user_id: string
+  public user_id: number
 
   @column()
-  public file_id: string
+  public file_id: number
 
   @column()
   public due_date: DateTime

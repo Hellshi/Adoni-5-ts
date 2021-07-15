@@ -31,3 +31,12 @@ Route.group(() => {
     Route.put('/update/:id', 'ProjectsController.update')
   }).prefix('/project')
 }).middleware('auth')
+
+Route.group(() => {
+  Route.group(() => {
+    Route.get('/:Task_id', 'TasksController.show')
+    Route.post('create', 'TasksController.store')
+    Route.delete('/delete/:Task_id', 'TasksController.delete')
+    Route.put('/update/:Task_id', 'TasksController.update')
+  }).prefix('/projects/:Project_id/tasks')
+}).middleware('auth')

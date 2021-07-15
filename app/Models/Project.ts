@@ -12,7 +12,7 @@ export default class Project extends BaseModel {
   @hasMany(() => Task, {
     foreignKey: 'project_id',
   })
-  public task: HasMany<typeof Task>
+  public tasks: HasMany<typeof Task>
 
   @column({ isPrimary: true })
   public id: number
