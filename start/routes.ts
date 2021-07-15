@@ -25,7 +25,7 @@ Route.post('/logIn', 'UsersController.session')
 Route.group(() => {
   Route.get('/', 'UsersController.index')
   Route.group(() => {
-    Route.get('/', 'ProjectsController.show')
+    Route.get('/:id', 'ProjectsController.show')
     Route.post('/create', 'ProjectsController.store')
     Route.delete('/delete/:id', 'ProjectsController.delete')
     Route.put('/update/:id', 'ProjectsController.update')

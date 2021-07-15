@@ -1,8 +1,11 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { BaseModel, column, beforeSave } from '@ioc:Adonis/Lucid/Orm'
-
+import { BaseModel, column, beforeSave, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import Project from 'App//Models/Project'
 export default class User extends BaseModel {
+  @hasMany(() => Project)
+  public project: HasMany<typeof Project>
+
   @column({ isPrimary: true })
   public id: number
 

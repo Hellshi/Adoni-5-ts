@@ -1,10 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import {
-  column,
-  beforeSave,
-  BaseModel,
-} from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 export default class users extends BaseModel {
   @column({ isPrimary: true })
@@ -26,7 +23,7 @@ export default class users extends BaseModel {
   public updatedAt: DateTime
 
   @beforeSave()
-  public static async hashPassword (users: users) {
+  public static async hashPassword(users: users) {
     if (users.$dirty.password) {
       users.password = await Hash.make(users.password)
     }
