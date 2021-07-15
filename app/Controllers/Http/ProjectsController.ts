@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Project from 'App/Models/Project'
+import User from 'App/Models/User'
 
 export default class ProjectsController {
   public async store({ request, auth }: HttpContextContract) {
@@ -13,9 +14,17 @@ export default class ProjectsController {
     return project
   }
 
-  public async show({ request }: HttpContextContract) {
+  public async show({ request, auth }: HttpContextContract) {
     const { id } = request.params()
+    const user = await auth.use('api').authenticate()
+    const Userid = user.id
     const projects = await Project.findByOrFail('id', id)
+    await projects.load('user', (queryUser) => {
+      queryUser.where('id', Userid)
+    })
+    await projects.load('task', (queryUser) => {
+      queryUser
+    })
     return projects
   }
 

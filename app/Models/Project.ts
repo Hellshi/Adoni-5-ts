@@ -4,10 +4,14 @@ import User from 'App/Models/User'
 import Task from 'App//Models/Task'
 
 export default class Project extends BaseModel {
-  @hasOne(() => User)
+  @hasOne(() => User, {
+    foreignKey: 'id',
+  })
   public user: HasOne<typeof User>
 
-  @hasMany(() => Task)
+  @hasMany(() => Task, {
+    foreignKey: 'project_id',
+  })
   public task: HasMany<typeof Task>
 
   @column({ isPrimary: true })
