@@ -22,6 +22,12 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/user', 'UsersController.store')
 Route.post('/logIn', 'UsersController.session')
+
+Route.group(() => {
+  Route.post('/', 'ResetPasswordsController.store')
+  Route.post('/:token', 'ResetPasswordsController.update')
+}).prefix('/reset')
+
 Route.group(() => {
   Route.get('/', 'UsersController.index')
 

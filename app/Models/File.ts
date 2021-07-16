@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasOne, hasOne, computed } from '@ioc:Adonis/Lucid/Orm'
 import Task from 'App//Models/Task'
+import Env from '@ioc:Adonis/Core/Env'
 
 export default class File extends BaseModel {
   @hasOne(() => Task, {
@@ -28,4 +29,9 @@ export default class File extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @computed()
+  public get url() {
+    return `http://127.0.0.1:3333/file/${this.id}`
+  }
 }

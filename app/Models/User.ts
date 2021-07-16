@@ -30,6 +30,12 @@ export default class User extends BaseModel {
   @column()
   public name: string
 
+  @column()
+  public token?: string
+
+  @column()
+  public token_created_at?: Date
+
   @column({ serializeAs: null })
   public password: string
 
